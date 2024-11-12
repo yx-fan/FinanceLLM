@@ -1,8 +1,15 @@
 from app import create_app
+import logging
+from datetime import datetime
 
-# 使用应用工厂模式创建 Flask 应用
+# Create Flask app
 app = create_app()
 
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+logger.info(f"Starting Flask app at {datetime.now()}")
+
 if __name__ == "__main__":
-    # 启动应用，指定 host 和 port
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    # Run Flask app in debug mode
+    app.run(host="0.0.0.0", port=5001, debug=True)
